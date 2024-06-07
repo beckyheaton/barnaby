@@ -1,0 +1,57 @@
+
+<!-- 
+Swimming pools website
+- sounds
+    - hamish cello
+    - rain
+    - One clear sound
+- images
+    - fuzzy dream sequence (perfect days)
+        https://www.youtube.com/watch?v=TFjC8-Huc_0 
+    - One clear image at the end or in the middle... a revelation
+
+-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="js/scripts.js"></script>
+    <!-- This is the little icon on the tab... "favicon" -->
+    <link rel="icon" type="image/png" href="https://photography-now.com/images/Hauptbilder/gross/163834.jpg">
+    <title>swimmingpools</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div id="title" class="title-small">
+        a poorly made website from me to you
+        <br>
+        swimming swimming swimming
+    </div>
+
+    <div id="imageContainer"></div>
+
+    <!-- Image of dreams -->
+    <img id="dreams" src="https://photography-now.com/images/Hauptbilder/gross/163834.jpg" alt="Photography Image">
+
+    <script>
+        const image = document.getElementById('dreams');
+        bounceImage(image);
+        fadeInOut(image);
+    </script>
+
+    <!-- Sound of rain-->
+    <audio autoplay loop>
+        <source src="sounds/springRain.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    
+    
+
+
+
+</body>
+</html>

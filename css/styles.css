@@ -1,0 +1,45 @@
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    text-align: left;
+    color: rgb(234, 234, 234);
+    background-color: rgb(24, 24, 24);
+    overflow: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+#title {
+    font-size: 6rem;
+    letter-spacing: -2px;
+    line-height: 0.9em;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    transition: 0.25s;
+    z-index: 1;
+}
+
+.title-small {
+    /* Your CSS styles for elements with class "title-small" go here */
+    font-size: 2rem !important;
+    letter-spacing: -1.25px !important;
+    width: calc(100vw - 100px);
+}
+
+/* New CSS rule for images */
+img {
+    position: absolute;
+}
+
+
+
