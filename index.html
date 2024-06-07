@@ -17,41 +17,37 @@ Swimming pools website
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A unique swimming pools themed website with interactive elements.">
+    <meta name="keywords" content="swimming pools, interactive, website">
+    <meta name="author" content="Your Name">
     
     <script src="js/scripts.js"></script>
-    <!-- This is the little icon on the tab... "favicon" -->
     <link rel="icon" type="image/png" href="https://photography-now.com/images/Hauptbilder/gross/163834.jpg">
-    <title>swimmingpools</title>
+    <title>Swimming Pools</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
     <div id="title" class="title-small">
-        a poorly made website from me to you
+        A poorly made website from me to you
         <br>
-        swimming swimming swimming
+        Swimming swimming swimming
     </div>
 
+    <!-- Images -->
     <div id="imageContainer"></div>
 
-    <!-- Image of dreams -->
-    <img id="dreams" src="https://photography-now.com/images/Hauptbilder/gross/163834.jpg" alt="Photography Image">
+    <img id="dreams" src="https://photography-now.com/images/Hauptbilder/gross/163834.jpg" alt="Photography Image of a Swimming Pool">
 
-    <script>
-        const image = document.getElementById('dreams');
-        bounceImage(image);
-        fadeInOut(image);
-    </script>
+    <!-- Audio for hover effect -->
+    <audio id="hoverSound" src="sounds/bowedCrotale.wav" type="audio/wav"></audio>
 
-    <!-- Sound of rain-->
-    <audio autoplay loop>
-        <source src="sounds/springRain.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-    
-    
-
-
+    <!-- Audio -->
+    <div id="audioToggle" class="audio-toggle">
+        <audio id="audioPlayer" autoplay loop>
+          <source src="sounds/springRain.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+    </div>
 
 </body>
 </html>
