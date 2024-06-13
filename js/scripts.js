@@ -1,15 +1,16 @@
 // Functions
 
-// Bouncing image
+// New Bounce image
 function bounceImage(imageElement) {
     const speed = 0.1; // Adjust the speed as needed
     const containerWidth = window.innerWidth;
     const containerHeight = window.innerHeight;
-    const imageWidth = imageElement.width;
-    const imageHeight = imageElement.height;
+    const imageWidth = containerWidth * 1.2; // 120% of viewport width
+    const imageHeight = containerHeight * 1.2; // 120% of viewport height
 
-    let posX = Math.random() * (containerWidth - imageWidth);
-    let posY = Math.random() * (containerHeight - imageHeight);
+    // Ensure the image starts off covering the whole screen
+    let posX = -Math.random() * (imageWidth - containerWidth);
+    let posY = -Math.random() * (imageHeight - containerHeight);
     let dirX = Math.random() > 0.5 ? 1 : -1;
     let dirY = Math.random() > 0.5 ? 1 : -1;
 
@@ -17,11 +18,11 @@ function bounceImage(imageElement) {
         posX += speed * dirX;
         posY += speed * dirY;
 
-        if (posX <= 0 || posX >= containerWidth - imageWidth) {
+        if (posX >= 0 || posX <= -(imageWidth - containerWidth)) {
             dirX *= -1;
         }
 
-        if (posY <= 0 || posY >= containerHeight - imageHeight) {
+        if (posY >= 0 || posY <= -(imageHeight - containerHeight)) {
             dirY *= -1;
         }
 
@@ -36,15 +37,17 @@ function bounceImage(imageElement) {
 
 // Fading image
 function fadeInOut(imageElement) {
-    let opacity = 0;
+    let opacity = 0.2; // Initial opacity
     let direction = 0.002; // Initial direction of opacity change
+    const minOpacity = 0.2; // Minimum opacity level
+    const maxOpacity = 1; // Maximum opacity level
 
     function fade() {
         opacity += direction; // Update opacity
         imageElement.style.opacity = opacity; // Apply opacity to the image
 
         // Change direction when reaching opacity limits
-        if (opacity <= 0 || opacity >= 1) {
+        if (opacity <= minOpacity || opacity >= maxOpacity) {
             direction *= -1;
         }
 
@@ -55,6 +58,7 @@ function fadeInOut(imageElement) {
     // Start the fading animation
     fade();
 }
+
 
 // Hover sound
 function setupHoverSound(imageElement, soundElement) {
@@ -128,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Time-based change
     const changeTime = new Date();
-    changeTime.setHours(24, 0, 0, 0); // Set change time to 8 PM tonight
+    changeTime.setHours(24, 20, 0, 0); // Set change time to 8 PM tonight
 
     const revertTime = new Date(changeTime.getTime() + 24 * 60 * 60 * 1000); // 24 hours later
 
