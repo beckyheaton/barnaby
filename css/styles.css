@@ -3,8 +3,8 @@ body {
     padding: 0;
     font-family: sans-serif;
     text-align: left;
-    color: rgb(56, 1, 17);
-    background-color: rgb(14, 0, 77);
+    color: rgb(51, 0, 9);
+    background-color: rgb(1, 0, 26);
     overflow: hidden;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -45,6 +45,7 @@ img {
     height: 120vh; /* Make the image 120% of the viewport height */
     object-fit: cover; /* Ensure the image covers the viewport without distortion */
     z-index: 1; /* Ensure the image is below other elements */
+    opacity: 0; /* Start with 0 opacity */
 }
 
 .audio-toggle {
@@ -53,7 +54,7 @@ img {
     height: 50px;
     top: 20px;
     right: 20px;
-    background-color: #fff;
+    background-color: rgb(61, 0, 18);
     border-radius: 50%;
     cursor: pointer;
     display: flex;

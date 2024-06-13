@@ -36,40 +36,42 @@ function bounceImage(imageElement) {
 }
 
 // Fading image
-function fadeInOut(imageElement) {
-    let opacity = 0.2; // Initial opacity
-    let direction = 0.002; // Initial direction of opacity change
-    const minOpacity = 0.2; // Minimum opacity level
+function fadeIn(imageElement) {
+    let opacity = 0; // Initial opacity
     const maxOpacity = 1; // Maximum opacity level
+    const fadeSpeed = 0.0001; // Speed of fading
 
     function fade() {
-        opacity += direction; // Update opacity
+        opacity += fadeSpeed; // Increase opacity
         imageElement.style.opacity = opacity; // Apply opacity to the image
 
-        // Change direction when reaching opacity limits
-        if (opacity <= minOpacity || opacity >= maxOpacity) {
-            direction *= -1;
+        // Continue fading until maximum opacity is reached
+        if (opacity < maxOpacity) {
+            requestAnimationFrame(fade);
         }
-
-        // Repeat the fading animation
-        requestAnimationFrame(fade);
     }
 
-    // Start the fading animation
-    fade();
+    // Delay the start of the fading animation by 60 seconds (60000 milliseconds)
+    setTimeout(() => {
+        fade();
+    }, 10000);
 }
 
 
 // Hover sound
 function setupHoverSound(imageElement, soundElement) {
     imageElement.addEventListener('mouseover', () => {
-        soundElement.currentTime = 0; // Reset the audio to the beginning
-        soundElement.play();
+        if (parseFloat(getComputedStyle(imageElement).opacity) === 1) {
+            soundElement.currentTime = 0; // Reset the audio to the beginning
+            soundElement.play();
+        }
     });
 
     imageElement.addEventListener('mouseout', () => {
-        soundElement.pause(); // Pause the audio when the mouse leaves the image
-        soundElement.currentTime = 0; // Reset the audio to the beginning
+        if (parseFloat(getComputedStyle(imageElement).opacity) === 1) {
+            soundElement.pause(); // Pause the audio when the mouse leaves the image
+            soundElement.currentTime = 0; // Reset the audio to the beginning
+        }
     });
 }
 
@@ -112,8 +114,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fade and Bounce Image
     images.forEach(image => {
-        bounceImage(image); // Call the bounceImage function for each image
-        fadeInOut(image); // Call the fadeInOut function for each image
+        // bounceImage(image); // Call the bounceImage function for each image
+        fadeIn(image); // Call the fadeInOut function for each image
     });
 
     // Audio Toggle
