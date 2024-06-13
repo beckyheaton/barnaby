@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Time-based change
     const changeTime = new Date();
-    changeTime.setHours(23, 45, 0, 0); // Set change time to 8 PM tonight
+    changeTime.setHours(24, 0, 0, 0); // Set change time to 8 PM tonight
 
     const revertTime = new Date(changeTime.getTime() + 24 * 60 * 60 * 1000); // 24 hours later
 
