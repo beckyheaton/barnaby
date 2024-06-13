@@ -12,6 +12,11 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure the body takes the full height of the viewport */
+    line-height: 1.8; /* Set global line height */
 }
 
 #title {

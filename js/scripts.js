@@ -84,6 +84,25 @@ function setupAudioToggle(player, toggleButton) {
     });
 }
 
+// Change at midnight
+function applyChanges() {
+    document.body.style.backgroundColor = 'rgb(60, 60, 60)';
+    document.getElementById('title').innerText = 'Special Content for Today';
+    const content = document.getElementById('content');
+    if (content) {
+        content.innerText = 'This is a special message that will be displayed for 24 hours.';
+    }
+}
+
+function revertChanges(originalTitle, originalContent) {
+    document.body.style.backgroundColor = 'rgb(24, 24, 24)';
+    document.getElementById('title').innerHTML = originalTitle;
+    const content = document.getElementById('content');
+    if (content) {
+        content.innerHTML = originalContent;
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('img'); // Select all images
 
@@ -102,4 +121,33 @@ document.addEventListener('DOMContentLoaded', function() {
     const image = document.getElementById('dreams');
     const hoverSound = document.getElementById('hoverSound');
     setupHoverSound(image, hoverSound);
+
+    // Store original content
+    const originalTitle = document.getElementById('title').innerHTML;
+    const originalContent = document.getElementById('content').innerHTML;
+
+    // Time-based change
+    const changeTime = new Date();
+    changeTime.setHours(23, 45, 0, 0); // Set change time to 8 PM tonight
+
+    const revertTime = new Date(changeTime.getTime() + 24 * 60 * 60 * 1000); // 24 hours later
+
+    const now = new Date();
+
+    if (now >= changeTime && now < revertTime) {
+        applyChanges();
+    } else {
+        revertChanges(originalTitle, originalContent);
+    }
+
+    // Check every minute
+    setInterval(function() {
+        const currentTime = new Date();
+        if (currentTime >= changeTime && currentTime < revertTime) {
+            applyChanges();
+        } else {
+            revertChanges(originalTitle, originalContent);
+        }
+    }, 60 * 1000);
+
 });
