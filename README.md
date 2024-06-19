@@ -1,1 +1,1 @@
-# barnaby's website made his daughter
+# barnaby's website made by his daughter
