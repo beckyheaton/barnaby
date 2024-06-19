@@ -57,7 +57,6 @@ function fadeIn(imageElement) {
     }, 10000);
 }
 
-
 // Hover sound
 function setupHoverSound(imageElement, soundElement) {
     imageElement.addEventListener('mouseover', () => {
@@ -75,7 +74,7 @@ function setupHoverSound(imageElement, soundElement) {
     });
 }
 
-// Audio Toggle
+// Audio Toggle for circle
 function setupAudioToggle(player, toggleButton) {
     toggleButton.addEventListener('click', function() {
         if (player.paused) {
@@ -88,6 +87,16 @@ function setupAudioToggle(player, toggleButton) {
             toggleButton.classList.remove('playing');
         }
     });
+}
+
+// Whole screen audio toggle
+function toggleAudio(audioPlayer) {
+    if (audioPlayer.muted) {
+        audioPlayer.muted = false;
+        audioPlayer.play();
+    } else {
+        audioPlayer.muted = true;
+    }
 }
 
 // Change at midnight
@@ -109,9 +118,17 @@ function revertChanges(originalTitle, originalContent) {
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('img'); // Select all images
+
+    // Ensure audioPlayer begins muted
+    const audioPlayer = document.getElementById('audioPlayer');
+    audioPlayer.muted = true; // Ensure audio starts muted
+
+    // Add event listener to the entire document
+    document.addEventListener('click', function() {
+        toggleAudio(audioPlayer);
+    });
 
     // Fade and Bounce Image
     images.forEach(image => {
@@ -119,8 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fadeIn(image); // Call the fadeInOut function for each image
     });
 
-    // Audio Toggle
-    const audioPlayer = document.getElementById('audioPlayer');
+    // Audio Toggle for circle
     const audioToggle = document.getElementById('audioToggle');
     setupAudioToggle(audioPlayer, audioToggle);
 
@@ -156,5 +172,4 @@ document.addEventListener('DOMContentLoaded', function() {
             revertChanges(originalTitle, originalContent);
         }
     }, 60 * 1000);
-
 });
