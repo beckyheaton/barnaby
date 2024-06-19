@@ -37,11 +37,23 @@ body {
     width: calc(100vw - 100px);
 }
 
-#iloveyou {
+#floatingParagraph {
     position: absolute;
+    transform: translate(-50%, -50%); /*  Center the paragraph exactly at the middle */
+}
+
+
+
+.iloveyou {
     top: 95%; /* Change to desired position */
     left: 90%; /* Change to desired position */
-    transform: translate(-50%, -50%); /*  Center the paragraph exactly at the middle */
+    padding: 5 px; /* Optional: Padding for better readability */
+    overflow: visible; /* Allow overflow */
+}
+
+.happybirthday {
+    top: 97%; /* Change to desired position */
+    left: 50%; /* Change to desired position */
     padding: 5 px; /* Optional: Padding for better readability */
     overflow: visible; /* Allow overflow */
 }
