@@ -3,8 +3,8 @@ body {
     padding: 0;
     font-family: sans-serif;
     text-align: left;
-    color: rgb(51, 0, 9);
-    background-color: rgb(1, 0, 26);
+    color: rgba(255, 226, 206, 0.924);
+    background-color: rgb(255, 239, 224);
     overflow: hidden;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -37,6 +37,15 @@ body {
     width: calc(100vw - 100px);
 }
 
+#iloveyou {
+    position: absolute;
+    top: 95%; /* Change to desired position */
+    left: 90%; /* Change to desired position */
+    transform: translate(-50%, -50%); /*  Center the paragraph exactly at the middle */
+    padding: 5 px; /* Optional: Padding for better readability */
+    overflow: visible; /* Allow overflow */
+}
+
 img {
     position: absolute;
     top: 0;
@@ -49,6 +58,8 @@ img {
 }
 
 .audio-toggle {
+    display: none;
+    /* display: flex; */
     position: fixed;
     width: 50px;
     height: 50px;
@@ -57,7 +68,6 @@ img {
     background-color: rgb(61, 0, 18);
     border-radius: 50%;
     cursor: pointer;
-    display: flex;
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s;

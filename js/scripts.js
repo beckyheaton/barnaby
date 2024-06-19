@@ -92,7 +92,7 @@ function setupAudioToggle(player, toggleButton) {
 
 // Change at midnight
 function applyChanges() {
-    document.body.style.backgroundColor = 'rgb(60, 60, 60)';
+    // document.body.style.backgroundColor = 'rgb(60, 60, 60)';
     document.getElementById('title').innerText = 'Special Content for Today';
     const content = document.getElementById('content');
     if (content) {
@@ -101,13 +101,14 @@ function applyChanges() {
 }
 
 function revertChanges(originalTitle, originalContent) {
-    document.body.style.backgroundColor = 'rgb(24, 24, 24)';
+    // document.body.style.backgroundColor = 'rgb(24, 24, 24)';
     document.getElementById('title').innerHTML = originalTitle;
     const content = document.getElementById('content');
     if (content) {
         content.innerHTML = originalContent;
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('img'); // Select all images
@@ -134,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Time-based change
     const changeTime = new Date();
-    changeTime.setHours(24, 20, 0, 0); // Set change time to 8 PM tonight
+    changeTime.setHours(24, 59, 0, 0); // Set change time to 8 PM tonight
 
     const revertTime = new Date(changeTime.getTime() + 24 * 60 * 60 * 1000); // 24 hours later
 
